@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 
 public class MyClassLoader extends ClassLoader {
 
-    private final static String PATH = "F:\\github\\JAVA-000\\Week_01\\jvm\\src\\main\\java\\com\\study\\hua\\work\\Hello.xlass";
+    private final static String PATH = "C:\\geektime\\JAVA-000\\Week_01\\jvm\\src\\main\\java\\com\\study\\hua\\work\\Hello.xlass";
     private final static String CLASS_NAME = "Hello";
     private final static String METHOD_NAME = "hello";
 
