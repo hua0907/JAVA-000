@@ -1,4 +1,4 @@
-package com.study.hua.week_02;
+package com.study.hua.week_02.netty;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.StatusLine;
@@ -7,23 +7,17 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
-@Component
-public class HttpClientDemo implements ApplicationRunner {
-
-    private static final String URL = "http://localhost:8888/v1/api/hello";
+public class HttpClientDemo {
+    private static final String URL = "http://localhost:8081";
 
     private static final int SUCCESS_CODE = 200;
 
     private static final String Charset = "UTF-8";
 
-    @Override
-    public void run(ApplicationArguments args) {
+    public static void main(String[] args) {
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 
         HttpGet httpGet = new HttpGet(URL);
