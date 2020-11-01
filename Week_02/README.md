@@ -56,13 +56,13 @@
 
 四、jVM总结：
 
-     1GC类型和特点
+     1、GC类型和特点
        SerialGC (串行GC)
 	   young区：SerialNew old区：SerialOld
 	   单线程的垃圾收集器，回收效率慢
 	   
 	   ParallelGC (并行GC)
-	   young区：ParallelNew old区：ParallelOld
+	   young区：Parallel Scavenge old区：Parallel Old
 	   多线程的垃圾收集器，回收效率快,注重吞吐量
 	   
 	   CMS
