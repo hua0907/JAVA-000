@@ -8,7 +8,7 @@
 		<!--<relativePath/>-->
 	<!--</parent>-->
     <groupId>com.study.hua</groupId>
-    <artifactId>jvm</artifactId>
+    <artifactId>week_01</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>jvm Tapestry 5 Application</name>
 	<build>
