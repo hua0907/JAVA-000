@@ -1,5 +1,6 @@
 package io.github.kimmking.gateway.outbound.httpclient;
 
+import io.github.kimmking.gateway.constant.HeaderConstant;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.DefaultFullHttpResponse;
@@ -28,6 +29,9 @@ public class MyHttpclientOutboundHandler {
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 
         HttpGet httpGet = new HttpGet(url);
+        String nioValue = fullRequest.headers().get(HeaderConstant.NOI_HEADER);
+        System.out.println("从header 中取到 nio 对应的值是：" + nioValue);
+        httpGet.setHeader(HeaderConstant.NOI_HEADER, nioValue);
         try (CloseableHttpResponse closeableHttpResponse = httpClient.execute(httpGet)) {
 
             byte[] body = EntityUtils.toByteArray(closeableHttpResponse.getEntity());
