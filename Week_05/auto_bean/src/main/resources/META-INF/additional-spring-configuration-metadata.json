@@ -1,0 +1,22 @@
+{
+  "properties": [
+    {
+      "name": "student.enable",
+      "type": "java.lang.Boolean",
+      "description": "是否开启student的自动注入",
+      "defaultValue": false
+    },
+    {
+      "name": "student.name",
+      "type": "java.lang.String",
+      "description": "学生姓名",
+      "defaultValue": ""
+    },
+    {
+      "name": "student.age",
+      "type": "java.lang.Integer",
+      "description": "学生年龄",
+      "defaultValue": 0
+    }
+  ]
+}
