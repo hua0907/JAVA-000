@@ -2,10 +2,12 @@ package com.hua.study.jdbc_demo.Jdbc;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
 
+@Order(1)
 @Component
 public class JdbcDemo implements ApplicationRunner {
     private static final String url = "jdbc:h2:mem:dbtest";
@@ -36,7 +38,7 @@ public class JdbcDemo implements ApplicationRunner {
 
         conn.setAutoCommit(false);//关闭自动提交
         PreparedStatement preparedStatement = conn.prepareStatement(BATCH_INSERT_SQL);
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             preparedStatement.setString(1, "insert" + i);
             preparedStatement.setInt(2, i * 10);
             preparedStatement.addBatch();
