@@ -2,6 +2,7 @@ package com.study.hua.homework.demo;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamDemo {
     public static void main(String[] args) {
@@ -24,11 +25,23 @@ public class StreamDemo {
         Optional<Integer> first = list.parallelStream().filter(i -> i > 6).findFirst();
         first.ifPresent(i -> System.out.println("找出大于6的第一个元素：" + i));
 
+        boolean flag = list.parallelStream().anyMatch(i -> i > 6);
+        System.out.println("集合中是否有大于6的元素：" + flag);
+
+        flag = list.parallelStream().allMatch(i -> i > 6);
+        System.out.println("集合中所有元素是否都大于6：" + flag);
+
+        flag = list.parallelStream().noneMatch(i -> i > 10);
+        System.out.println("集合中是否没有大于10的元素：" + flag);
+
         Optional<Integer> any = list.parallelStream().filter(i -> i > 6).findAny();
         any.ifPresent(i -> System.out.println("找出大于6的任意一个元素：" + i));
 
         data = list.parallelStream().map(i -> i * 5).collect(Collectors.toList());
         System.out.println("所有元素乘以5之后的集合：" + data);
+
+        data = Stream.of(list, Arrays.asList(1, 2, 0)).flatMap(Collection::stream).collect(Collectors.toList());
+        System.out.println("合并之后的集合：" + data);
 
         data = list.parallelStream().distinct().collect(Collectors.toList());
         System.out.println("去重之后的集合：" + data);
@@ -41,5 +54,11 @@ public class StreamDemo {
 
         Optional<Integer> min = list.parallelStream().min(Integer::compare);
         min.ifPresent(i -> System.out.println("集合中的最小值是： " + i));
+
+        long count = list.parallelStream().count();
+        System.out.println("集合个数：" + count);
+
+        Integer sum = list.parallelStream().reduce(0, (a, b) -> a + b);
+        System.out.println("所有数据的和：" + sum);
     }
 }
