@@ -1,0 +1,6 @@
+
+
+mybatis:
+  config-location: classpath:/mapper/UserInfoMapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
