@@ -4,7 +4,7 @@ public enum DataSourceEnum {
 
 
     MASTER("masterDataSource"),
-    SLAVE_A("slave_c_dataSource"),
+    SLAVE_A("slave_a_dataSource"),
     SLAVE_B("slave_b_dataSource"),
     SLAVE_C("slave_c_dataSource");
 

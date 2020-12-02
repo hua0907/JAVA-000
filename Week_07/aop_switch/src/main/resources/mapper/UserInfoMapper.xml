@@ -12,7 +12,6 @@
         select id,username,age
         from user_info
         where id = #{userId}
-          and is_deleted = 0
     </select>
 
 

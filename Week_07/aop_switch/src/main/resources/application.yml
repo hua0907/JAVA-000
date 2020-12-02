@@ -1,6 +1,33 @@
+spring:
+  datasource:
+    master:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://172.16.111.4:3306/master?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+      username: root
+      password: hycloud@123
+      type: com.alibaba.druid.pool.DruidDataSource
 
+    slave:
+      a:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://172.16.111.4:3306/slave_a?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+        username: root
+        password: hycloud@123
+        type: com.alibaba.druid.pool.DruidDataSource
+
+      b:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://172.16.111.4:3306/slave_b?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+        username: root
+        password: hycloud@123
+        type: com.alibaba.druid.pool.DruidDataSource
+
+      c:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://172.16.111.4:3306/slave_c?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+        username: root
+        password: hycloud@123
+        type: com.alibaba.druid.pool.DruidDataSource
 
 mybatis:
-  config-location: classpath:/mapper/UserInfoMapper.xml
-  configuration:
-    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml

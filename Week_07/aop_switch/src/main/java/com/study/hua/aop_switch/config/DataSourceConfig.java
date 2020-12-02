@@ -1,6 +1,7 @@
 package com.study.hua.aop_switch.config;
 
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.study.hua.aop_switch.DataSource.MyDynamicDataSource;
 import com.study.hua.aop_switch.DataSourceEnum.DataSourceEnum;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -10,44 +11,39 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
 import javax.sql.DataSource;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Configuration
 public class DataSourceConfig {
 
-    private static List<String> SLAVE_LIST = Arrays.stream(DataSourceEnum.values()).skip(0).map(DataSourceEnum::getName).collect(Collectors.toList());
-
-    @Bean
-    @ConfigurationProperties("spring.datasource.master")
+    @Bean("master")
+    @ConfigurationProperties(prefix = "spring.datasource.master")
     public DataSource master() {
-        return DataSourceBuilder.create().build();
+        return new DruidDataSource();
     }
 
 
-    @Bean
-    @ConfigurationProperties("spring.datasource.slave.a")
+    @Bean("slave_a")
+    @ConfigurationProperties(prefix = "spring.datasource.slave.a")
     public DataSource slaveA() {
-        return DataSourceBuilder.create().build();
+        return new DruidDataSource();
     }
 
-    @Bean
-    @ConfigurationProperties("spring.datasource.slave.b")
+    @Bean("slave_b")
+    @ConfigurationProperties(prefix = "spring.datasource.slave.b")
     public DataSource slaveB() {
-        return DataSourceBuilder.create().build();
+        return new DruidDataSource();
     }
 
-    @Bean
-    @ConfigurationProperties("spring.datasource.slave.c")
+    @Bean("slave_c")
+    @ConfigurationProperties(prefix = "spring.datasource.slave.c")
     public DataSource slaveC() {
-        return DataSourceBuilder.create().build();
+        return new DruidDataSource();
     }
 
-    @Primary
     @Bean
+    @Primary
     public DataSource dynamicDataSource() {
         Map<Object, Object> dataSourceMap = new HashMap<>();
         dataSourceMap.put(DataSourceEnum.MASTER.getName(), master());
