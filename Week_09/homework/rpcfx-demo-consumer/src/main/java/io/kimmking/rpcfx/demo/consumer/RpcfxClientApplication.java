@@ -5,6 +5,8 @@ import io.kimmking.rpcfx.demo.api.Order;
 import io.kimmking.rpcfx.demo.api.OrderService;
 import io.kimmking.rpcfx.demo.api.User;
 import io.kimmking.rpcfx.demo.api.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
@@ -16,6 +18,8 @@ public class RpcfxClientApplication {
 	//
 
 	public static void main(String[] args) {
+
+
 
 		// UserService service = new xxx();
 		// service.findById
